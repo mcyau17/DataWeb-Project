@@ -22,10 +22,10 @@ app.listen(port, () => {
 //Displays the managers
 app.get('/managers', (req, res) => {
     DAO.findAll()
-        .then(data => {
+        .then((data) => {
             res.render('managers', {managers: data});
         })
-        .catch(error => {
+        .catch((error) => {
             console.log("Error: " + error)
         })
 
@@ -58,7 +58,7 @@ app.post('/managers/add', (req, res) =>{
         .then((data) => {
             res.redirect('/managers')
         })
-        .catch(error => {
+        .catch((error) => {
             console.log("Error: " + error)
             res.redirect('/managers')
         })
@@ -95,7 +95,7 @@ app.post("/stores/add", (req, res) =>{
         .then((data) =>{
             res.redirect('/stores');
         })
-        .catch(error =>{
+        .catch((error) =>{
             console.log("Error: " + error);
             res.redirect('/stores');
         })
@@ -104,10 +104,10 @@ app.post("/stores/add", (req, res) =>{
 //displays the products page
 app.get("/products",(req,res) => {
     DOAmySQL.getProducts()
-    .then(data =>{
+    .then((data) =>{
         res.render('products', {product: data});
     })
-    .catch(error =>{
+    .catch((error) =>{
         console.log("Error: " + error)
     })
 })
