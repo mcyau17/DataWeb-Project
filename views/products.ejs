@@ -1,0 +1,25 @@
+<title>Products</title>
+<H1>Products</H1>
+
+<table>
+    <tr>
+        <th> Product ID </th>
+        <th> Description </th>
+        <th> Store Id     </th>
+        <th> Location </th>
+        <th> Price </th>
+    </tr>
+    <% managers.forEach((data) => { %>
+        <tr>
+            <!-- Database from the MySQL-->
+            <td> <%= data.pid %> </td>
+            <td> <%= data.productdesc %> </td>
+            <td> <%= data.sid %> </td>
+            <td> <%= data.location %> </td>
+            <td> <%= data.Price %> </td>
+        </tr>
+    <% }); %>
+</table>
+<br>
+
+<a href ="/">Home</a>

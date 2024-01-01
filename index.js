@@ -1,10 +1,14 @@
+var DAO = require('./DAO.js')
+var DOAmySQL = require('./DOAmySQL.js')
 const express = require('express')
 const app = express();
-const bodyParser = require('body-parser')
 const port = 27017
 
+
+app.set('view engine', 'ejs');
+
 app.get("/", (req, res) => {
-    res.send("Local server running...");
+    res.render('home');
   });
 
 app.listen(port, () => {
@@ -12,17 +16,29 @@ app.listen(port, () => {
 })
 
 app.get('/managers', (req, res) => {
-    dao.findAll()
-        .then((documents) => {
-         // Process documents
-    })
-        .catch((error) => {
-        // Handle error
-    })
+    DAO.findAll()
+        .then(data => {
+            res.render('managers', {managers: data});
+        })
+        .catch(error => {
+            console.log("Error: " + error)
+        })
+
 })
 
-app.get("/stores",(req,res) => {
-    res.send("Stores");
+app.get('/managers/add', (req, res) =>{
+     res.render('manageradd', {manageradd: add});
+})
+        
+
+app.get("/stores", (req,res) => {
+    DOAmySQL.getStore()
+    .then(data =>{
+        res.render('store', {store: data});
+    })
+    .catch(error =>{
+        console.log("Error: " + error)
+    })
 })
 
 app.get("/stores/edit",(req,res) => {
@@ -30,5 +46,11 @@ app.get("/stores/edit",(req,res) => {
 })
 
 app.get("/products",(req,res) => {
-    res.send("Products ");
+    DOAmySQL.getProducts()
+    .then(data =>{
+        res.render('products', {product: data});
+    })
+    .catch(error =>{
+        console.log("Error: " + error)
+    })
 })

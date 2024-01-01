@@ -19,5 +19,20 @@ var findAll = function() {
         .catch((error) => {
             reject(error)
         })
+    })
+}  
+
+var addManager = function(managers) {
+    return new Promise((resolve, reject) => {
+        coll.insertOne(managers)
+        .then((documents) => {
+            resolve(documents)
         })
-    }        
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+    
+
+module.exports = {findAll, addManager};

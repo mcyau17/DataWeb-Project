@@ -1,0 +1,23 @@
+<title>Stores</title>
+<H1>Stores</H1>
+
+<table>
+    <tr>
+        <th> SID </th>
+        <th> Location </th>
+        <th> Manager Id </th>
+        <th> Action </th>
+    </tr>
+    <% managers.forEach((data) => { %>
+        <tr>
+            <!-- Database from the MySQL-->
+            <td> <%= data.sid %> </td>
+            <td> <%= data.location %> </td>
+            <td> <%= data.mgrid %> </td>
+            <td></td>
+        </tr>
+    <% }); %>
+</table>
+<br>
+
+<a href ="/">Home</a>

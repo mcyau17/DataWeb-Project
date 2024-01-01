@@ -1,0 +1,22 @@
+<title>ManagersDB</title>
+<H1>Managers</H1>
+
+<a href="/managers/add"> Add Manager</a><br>
+<table>
+    <tr>
+        <th> Manager Id </th>
+        <th> Name </th>
+        <th> Salary </th>
+    </tr>
+    <% managers.forEach((data) => { %>
+        <tr>
+            <!-- Database from the mongo DB-->
+            <td> <%= data._id %> </td>
+            <td> <%= data.name %> </td>
+            <td> <%= data.salary %> </td>
+        </tr>
+    <% }); %>
+</table>
+<br>
+
+<a href ="/">Home</a>
