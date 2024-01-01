@@ -40,14 +40,14 @@ app.get('/managers/add', (req, res) =>{
 app.post('/managers/add', (req, res) =>{
     //Checks if the manager ID is the right length
     if(req.body.id.length != 4 ){  
-        console.log("Error: The Manager Id must be exactly 4 characters")
-        res.redirect('/managers/add?error+ ' + encodeURI("The Manager ID must be 4 characters"))
+        console.log("Error: The inputted ID needs to be equal to 4")
+        res.redirect('/managers/add?error+ ' + encodeURI("The inputted ID needs to be equal to 4"))
         return;
     }
     //Checks if the name is the right length
     if(req.body.name.length < 5 ){  
-        console.log("Error: name must be greater than 5 characters")
-        res.redirect('/managers/add?error+ ' + encodeURI("Name must be greater than 5 characters"))
+        console.log("Error: The inputted name must be greater than 5 characters")
+        res.redirect('/managers/add?error+ ' + encodeURI("The inputted name must be greater than 5 characters"))
         return;
     }
 
@@ -85,8 +85,8 @@ app.get("/stores/add", (req, res)=>{
 app.post("/stores/add", (req, res) =>{
     //makes sure the mgrid is the right length
     if(req.body.mgrid.length != 4){
-        console.log("Error: The Manager Id must be exactly 4 characters")
-        res.redirect('/stores/add?error+ ' + encodeURI("The Manager ID must be 4 characters"))
+        console.log("Error: The inputted ID needs to be equal to 4")
+        res.redirect('/stores/add?error+ ' + encodeURI("The inputted ID needs to be equal to 4"))
         return;
     }
 
