@@ -4,9 +4,11 @@ const express = require('express')
 const app = express();
 const port = 27017
 const bodyParser = require('body-parser')
+const { check, validationResult } = require('express-validator');
 
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: false}))
 
 app.get("/", (req, res) => {
     res.render('home');
@@ -30,9 +32,13 @@ app.get('/managers', (req, res) => {
 app.get('/managers/add', (req, res) =>{
      res.render('manageradd');
 })
-        
-app.post('/managers/add', (req, res) => {
-    
+
+app.post('/managers/add', (req, res) =>{
+    if(req.body._id.length != 4){  
+        console.log("Error: Manager Id must be exactly 4 characters")
+        res.redirect('/managers/add?error+ ' + encodeURI("Manager ID must be 4 characters"))
+        return;
+    }
     DAO.addManager(req.body._id, req.body.name, req.body.salary)
         .then((data) => {
             res.redirect('/managers')
