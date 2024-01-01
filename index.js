@@ -3,6 +3,7 @@ var DOAmySQL = require('./DOAmySQL.js')
 const express = require('express')
 const app = express();
 const port = 27017
+const bodyParser = require('body-parser')
 
 
 app.set('view engine', 'ejs');
@@ -30,6 +31,17 @@ app.get('/managers/add', (req, res) =>{
      res.render('manageradd');
 })
         
+app.post('/managers/add', (req, res) => {
+    
+    DAO.addManager(req.body._id, req.body.name, req.body.salary)
+        .then((data) => {
+            res.redirect('/managers')
+        })
+        .catch(error => {
+            console.log("Error: " + error)
+            res.redirect('/managers')
+        })
+})
 
 app.get("/stores", (req,res) => {
     DOAmySQL.getStore()

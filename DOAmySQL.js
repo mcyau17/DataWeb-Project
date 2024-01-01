@@ -31,6 +31,6 @@ var getProducts = function(){
                 reject(error)
             })
     })
-}
+} 
 
 module.exports = {getStore, getProducts}
