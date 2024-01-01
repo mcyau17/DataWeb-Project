@@ -27,7 +27,7 @@ app.get('/managers', (req, res) => {
 })
 
 app.get('/managers/add', (req, res) =>{
-     res.render('manageradd', {manageradd: add});
+     res.render('manageradd');
 })
         
 

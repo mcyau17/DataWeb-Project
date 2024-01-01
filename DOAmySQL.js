@@ -23,7 +23,7 @@ var getStore = function() {
 
 var getProducts = function(){
     return new Promise((resolve, reject) =>{
-        pool.query('SELECT * FROM product WHERE sid = (SELECT * FROM store)')
+        pool.query('SELECT * FROM product')
             .then((data) =>{
                 resolve(data)
             })
