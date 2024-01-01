@@ -69,10 +69,10 @@ app.post('/managers/add', (req, res) =>{
 //Displays the stores page
 app.get("/stores", (req,res) => {
     DOAmySQL.getStore()
-    .then(data =>{
+    .then((data) =>{
         res.render('stores', {store: data});
     })
-    .catch(error =>{
+    .catch((error) =>{
         console.log("Error: " + error)
     })
 })
@@ -86,7 +86,7 @@ app.post("/stores/add", (req, res) =>{
     //makes sure the mgrid is the right length
     if(req.body.mgrid.length != 4){
         console.log("Error: The Manager Id must be exactly 4 characters")
-        res.redirect('/stores/add?error+ ' + encodeURI("TheManager ID must be 4 characters"))
+        res.redirect('/stores/add?error+ ' + encodeURI("The Manager ID must be 4 characters"))
         return;
     }
 
@@ -102,7 +102,7 @@ app.post("/stores/add", (req, res) =>{
 })
 
 //displays the products page
-app.get("/products",(req,res) => {
+app.get("/products", (req,res) => {
     DOAmySQL.getProducts()
     .then((data) =>{
         res.render('products', {product: data});
