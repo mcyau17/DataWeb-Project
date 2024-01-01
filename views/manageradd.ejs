@@ -2,12 +2,17 @@
 
 <h1>Add Manager</h1>
 <body>
+    <ul>
+        <li>Manager ID must be 4 characters</li>    
+        <li>Name must be > 5 characters</li>    
+        <li>Salary must be between 30000 and 70000</li>    
+    </ul>
     <form action="/managers/add" method="post">
-        <label for="_id">Manager Id(must be 4 characters):</label>
+        <label for="_id">Manager Id:</label>
         <input type="text" id="_id" name="_id"><br>
-        <label for="name">Full Name(must be atleast 5 characters):</label>
+        <label for="name">Full Name:</label>
         <input type="text" id="name" name="name"><br>
-        <label for="salary">Salary(must be between 30,000 and 70,000)</label>
+        <label for="salary">Salary:</label>
         <input type="number" id="salary" name="salary"><br>
         <input type="submit" value="submit">
     </form>
