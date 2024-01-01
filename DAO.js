@@ -1,5 +1,6 @@
 const MongoClient = require('mongodb').MongoClient
 
+//connects to the mongo client
 MongoClient.connect('mongodb://127.0.0.1:27017')
     .then((client) => {
         db = client.db('proj2023MongoDB')
@@ -9,6 +10,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017')
         console.log(error.message)
     })
 
+//function to get the data from the mongo db
 var findAll = function() {
     return new Promise((resolve, reject) => {
         var cursor = coll.find()
@@ -21,7 +23,7 @@ var findAll = function() {
         })
     })
 }  
-
+//function to add to the mongo db
 var addManager = function(managers) {
     return new Promise((resolve, reject) => {
         coll.insertOne(managers)
@@ -34,5 +36,5 @@ var addManager = function(managers) {
     })
 }
     
-
+//exports functions
 module.exports = {findAll, addManager};
