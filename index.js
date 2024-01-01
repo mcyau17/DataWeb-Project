@@ -34,11 +34,17 @@ app.get('/managers/add', (req, res) =>{
 })
 
 app.post('/managers/add', (req, res) =>{
-    if(req.body.id.length != 4){  
+    if(req.body.id.length != 4 ){  
         console.log("Error: Manager Id must be exactly 4 characters")
         res.redirect('/managers/add?error+ ' + encodeURI("Manager ID must be 4 characters"))
         return;
     }
+    if(req.body.name.length < 5 ){  
+        console.log("Error: name must be greater than 5 characters")
+        res.redirect('/managers/add?error+ ' + encodeURI("Manager ID must be 4 characters"))
+        return;
+    }
+    
    DAO.addManager({_id:req.body.id, 
     name:req.body.name, 
     salary:req.body.salary})
