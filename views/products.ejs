@@ -5,11 +5,12 @@
     <tr>
         <th> Product ID </th>
         <th> Description </th>
-        <th> Store Id     </th>
+        <th> Store Id </th>
         <th> Location </th>
         <th> Price </th>
+        <th> Actions</th>
     </tr>
-    <% managers.forEach((data) => { %>
+    <% product.forEach((data) => { %>
         <tr>
             <!-- Database from the MySQL-->
             <td> <%= data.pid %> </td>
@@ -17,6 +18,7 @@
             <td> <%= data.sid %> </td>
             <td> <%= data.location %> </td>
             <td> <%= data.Price %> </td>
+            <td> <a href="/products/delete/:pid">Delete</a></td>
         </tr>
     <% }); %>
 </table>

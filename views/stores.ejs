@@ -8,13 +8,13 @@
         <th> Manager Id </th>
         <th> Action </th>
     </tr>
-    <% managers.forEach((data) => { %>
+    <% store.forEach((data) => { %>
         <tr>
             <!-- Database from the MySQL-->
             <td> <%= data.sid %> </td>
             <td> <%= data.location %> </td>
             <td> <%= data.mgrid %> </td>
-            <td></td>
+            <td> <a href="/stores/edit/:sid"> Update </a></td>
         </tr>
     <% }); %>
 </table>
